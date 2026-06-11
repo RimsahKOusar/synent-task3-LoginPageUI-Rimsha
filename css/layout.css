@@ -1,0 +1,67 @@
+/* ============================================================
+   layout.css
+   PURPOSE : Controls the overall two-column page structure.
+             Left side = decorative branding panel.
+             Right side = login form card.
+
+   KEY CONCEPT — CSS GRID:
+   CSS Grid lets you divide a container into rows and columns.
+   We use it here to split the page into two halves side by side.
+   grid-template-columns: 1fr 1fr  means:
+   "make two columns, each taking 1 fraction of available space"
+   So each column gets exactly 50% of the page width.
+   ============================================================ */
+/* ── LEFT PANEL ─────────────────────────────────────────────
+   The decorative left half of the screen.
+   Contains the brand name, tagline, and feature list.
+
+   position: relative → needed so the floating shapes inside
+                         can be positioned relative to this panel.
+   overflow: hidden   → hides any decorative shapes that go
+                         outside the panel boundary.
+────────────────────────────────────────────────────────────── */
+.left-panel {
+  background: var(--panel-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+
+
+/* ── LEFT PANEL DECORATIVE SHAPES ───────────────────────────
+   These are purely visual glowing circles in the background.
+   They use ::before and ::after — these are "pseudo-elements":
+   fake elements created with CSS only (no HTML needed).
+
+   position: absolute → positioned relative to .left-panel
+   border-radius: 50% → makes a square into a circle (50% rounds corners)
+   filter: blur()     → blurs the circle to create a soft glow effect
+   pointer-events: none → these shapes can't be clicked or interacted with
+────────────────────────────────────────────────────────────── */
+.left-panel::before {
+  content: '';           /* required for pseudo-elements to appear */
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.left-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
