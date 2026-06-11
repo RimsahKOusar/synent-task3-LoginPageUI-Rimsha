@@ -65,3 +65,18 @@
   border-radius: 50%;
   pointer-events: none;
 }
+
+
+/* ── PAGE WRAPPER ───────────────────────────────────────────
+   This is the outermost container that holds both panels.
+
+   display: grid          → activates CSS Grid on this element
+   grid-template-columns  → defines the column sizes
+     "1fr 1fr" = two equal columns (50% / 50%)
+   min-height: 100vh      → wrapper fills the full screen height
+────────────────────────────────────────────────────────────── */
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
