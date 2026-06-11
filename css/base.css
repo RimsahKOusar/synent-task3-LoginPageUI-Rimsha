@@ -1,0 +1,59 @@
+/* ============================================================
+   base.css
+   PURPOSE : Resets browser defaults and sets global styles.
+
+   WHY WE NEED A RESET:
+   Every browser (Chrome, Firefox, Safari) adds its own default
+   padding and margins to HTML elements. Without a reset, your
+   page looks different in each browser. This file zeroes
+   everything out so YOU are in full control of the styling.
+   ============================================================ */
+
+
+/* ── THE UNIVERSAL RESET ────────────────────────────────────
+   The * means "select every single element on the page".
+
+   margin: 0        → removes all browser default spacing outside elements
+   padding: 0       → removes all browser default spacing inside elements
+   box-sizing: border-box → VERY IMPORTANT:
+     By default, if you set width: 200px and padding: 20px,
+     the element becomes 240px wide (200 + 20 + 20).
+     border-box changes this so the element STAYS 200px —
+     the padding is counted INSIDE the width, not added on top.
+     This makes layouts much easier to control.
+────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ── BODY ───────────────────────────────────────────────────
+   Sets the default look for the whole page.
+
+   background-color  → dark blue-black background (from variables.css)
+   color             → default text color for all text on the page
+   font-family       → default font for all text (Inter)
+   min-height: 100vh → vh means "viewport height" (screen height).
+                        100vh = the full screen height.
+                        min-height means "at least this tall" —
+                        it can grow taller if content needs it.
+────────────────────────────────────────────────────────────── */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+
+/* ── LINKS ──────────────────────────────────────────────────
+   Removes the default blue color and underline from all <a> tags.
+   Each section will style its own links separately.
+────────────────────────────────────────────────────────────── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
