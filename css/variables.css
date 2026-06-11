@@ -1,0 +1,81 @@
+/* ============================================================
+   variables.css
+   PURPOSE : This is the "settings file" for the entire project.
+             Every color, font, and spacing value used anywhere
+             in the project is defined here as a variable.
+
+   HOW VARIABLES WORK:
+   - You define them inside :root { } using --name: value;
+   - You use them anywhere else with var(--name)
+   - Change it once here → updates everywhere automatically
+   ============================================================ */
+
+:root {
+
+  /* ── COLORS ─────────────────────────────────────────────────
+     Think of these like giving names to your colors.
+     Instead of writing #0a0e1a everywhere, you write var(--bg).
+     If you want to change the background color later,
+     you only change it in ONE place here.
+  ──────────────────────────────────────────────────────────── */
+
+  /* The darkest color — main page background */
+  --bg:             #0a0e1a;
+
+  /* Slightly lighter dark — used for the left decorative panel */
+  --panel-bg:       #0d1224;
+
+  /* The login card background — lighter than the page bg */
+  --card-bg:        #111827;
+
+  /* Input field background — slightly lighter than the card */
+  --input-bg:       #1a2235;
+
+  /* Border color — the subtle lines around inputs and cards */
+  --border:         #1e2d45;
+
+  /* Border color when an input is focused (clicked into) */
+  --border-focus:   #3b82f6;
+
+  /* Primary blue — used for the login button and accents */
+  --accent:         #3b82f6;
+
+  /* Darker blue — used for button hover state */
+  --accent-dark:    #2563eb;
+
+  /* Blue glow — used for shadows under the button */
+  --accent-glow:    rgba(59, 130, 246, 0.3);
+
+  /* The gradient on the left decorative panel */
+  --panel-gradient: linear-gradient(145deg, #0d1224 0%, #0a1628 50%, #0d1224 100%);
+
+  /* Main white text */
+  --text:           #f8fafc;
+
+  /* Secondary grey text — used for labels and descriptions */
+  --muted:          #64748b;
+
+  /* Even lighter grey — used for placeholder text in inputs */
+  --subtle:         #374151;
+
+
+  /* ── FONTS ───────────────────────────────────────────────────
+     We use two fonts loaded from Google Fonts in index.html.
+     Inter : clean modern font — perfect for UI and forms
+  ──────────────────────────────────────────────────────────── */
+  --font: 'Inter', sans-serif;
+
+
+  /* ── SIZES ───────────────────────────────────────────────────
+     Consistent sizing values so everything looks proportional.
+  ──────────────────────────────────────────────────────────── */
+
+  /* How rounded the corners of cards and buttons are */
+  --radius:    16px;
+  --radius-sm: 10px;
+  --radius-xs: 8px;
+
+  /* Shadow under the login card */
+  --card-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+
+}
