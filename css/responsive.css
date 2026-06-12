@@ -1,0 +1,68 @@
+/* ============================================================
+   responsive.css
+   PURPOSE : Makes the page look good on all screen sizes.
+
+   HOW RESPONSIVE DESIGN WORKS:
+   CSS has a feature called "media queries" that lets you write
+   rules that ONLY apply when certain conditions are true —
+   like "only apply these styles when the screen is under 768px".
+
+   We write the DESKTOP layout first in the other CSS files,
+   then use this file to OVERRIDE those styles for smaller screens.
+
+   Common breakpoints used by developers:
+   - 1024px  → small laptops / large tablets (landscape)
+   - 768px   → tablets (portrait) / large phones
+   - 480px   → mobile phones
+   ============================================================ */
+
+
+/* ── TABLET — screens 1024px wide or smaller ────────────────
+   On tablets, the two-column layout is too cramped.
+   We switch to a single column so the login card takes
+   the full screen width.
+────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Switch the two-column grid to a single column */
+  .page-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide the left decorative panel completely —
+     there's not enough room to show it on a tablet */
+  .left-panel {
+    display: none;
+  }
+
+  /* The right panel now takes the full screen,
+     so center the card both ways */
+  .right-panel {
+    padding: 2rem;
+    min-height: 100vh;    /* still fills the full screen */
+  }
+
+}
+
+
+/* ── MOBILE — screens 480px wide or smaller ─────────────────
+   On small phones, reduce padding so the card doesn't feel cramped.
+────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Less padding inside the card on small screens */
+  .login-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  /* Smaller heading on very small phones */
+  .card-header h1 {
+    font-size: 1.3rem;
+  }
+
+  /* Stack the social buttons vertically on very small screens */
+  .social-buttons {
+    grid-template-columns: 1fr;
+  }
+
+}

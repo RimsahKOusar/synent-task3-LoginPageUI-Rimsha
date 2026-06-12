@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/card.css" />
   <link rel="stylesheet" href="css/form.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
 
 </head>
@@ -203,3 +204,45 @@
 
   </div>
   <!-- end .page-wrapper -->
+   <!--
+    JAVASCRIPT — PASSWORD TOGGLE
+    ════════════════════════════════════════════════════════
+    This small script handles the eye button that shows/hides
+    the password. It's placed at the BOTTOM of the body so the
+    HTML elements above are already loaded before the script runs.
+
+    HOW IT WORKS:
+    1. querySelectorAll finds ALL elements with class .toggle-password
+    2. We loop through each button and add a "click" listener
+    3. When clicked, we find the matching input using data-target
+    4. We check if type is "password" or "text" and switch it
+    5. The eye emoji also changes to show the current state
+    ════════════════════════════════════════════════════════
+  -->
+  <script>
+    // Find all password toggle buttons on the page
+    document.querySelectorAll('.toggle-password').forEach(function(button) {
+
+      button.addEventListener('click', function() {
+
+        // Get the id of the input to toggle (from data-target attribute)
+        const targetId = this.getAttribute('data-target');
+
+        // Find the actual input element by that id
+        const input = document.getElementById(targetId);
+
+        // If currently hidden (password), show it (text) — and vice versa
+        if (input.type === 'password') {
+          input.type = 'text';
+          this.textContent = '🙈';   // closed-eye emoji = password is visible
+        } else {
+          input.type = 'password';
+          this.textContent = '👁';   // open-eye emoji = password is hidden
+        }
+
+      });
+    });
+  </script>
+
+</body>
+</html>
