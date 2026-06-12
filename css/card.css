@@ -44,3 +44,37 @@
   color: var(--text);
   letter-spacing: -0.3px;
 }
+/* ── TAGLINE HEADING ────────────────────────────────────────
+   The big headline on the left panel.
+   clamp() makes the font size automatically scale with screen:
+     min 1.8rem → preferred 3vw → max 2.6rem
+────────────────────────────────────────────────────────────── */
+.panel-heading {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+/* The blue-to-purple gradient on highlighted words */
+.panel-heading .highlight {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* HOW GRADIENT TEXT WORKS:
+     1. Apply gradient as a background
+     2. Clip the background to only show through the text shape
+     3. Make the text itself transparent so gradient shows through */
+}
+
+/* Subtitle below the heading */
+.panel-subtext {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 360px;
+}

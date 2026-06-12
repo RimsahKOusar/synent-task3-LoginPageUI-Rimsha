@@ -8,24 +8,35 @@
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/card.css" />
 
 </head>
 <body>
-    <div class="page-wrapper">
-        <div class="left-panel">
-            <!--
-  sections/left-panel.html
-  PURPOSE : The decorative left half of the screen.
-            Shows the brand name, a heading, feature list,
-            and a quote at the bottom.
-  LINKED CSS : css/layout.css (for .left-panel positioning)
-               css/card.css   (for the content inside)
 
-  NOTE: This panel is hidden on tablets and phones.
-        See css/responsive.css for how that works.
--->
+  <!--
+    ════════════════════════════════════════════════════════
+    PAGE STRUCTURE
 
-<div class="left-panel">
+    .page-wrapper divides the screen into two halves:
+    ┌─────────────────────┬─────────────────────┐
+    │                     │                     │
+    │    LEFT PANEL       │    RIGHT PANEL      │
+    │  (decorative)       │   (login form)      │
+    │  left-panel.html    │  right-panel.html   │
+    │  card.css           │  card.css           │
+    │  layout.css         │  form.css           │
+    │                     │                     │
+    └─────────────────────┴─────────────────────┘
+    ════════════════════════════════════════════════════════ -->
+   <div class="page-wrapper">
+        
+   <!-- ══════════════════════════════
+         LEFT PANEL — Decorative side
+         Source : sections/left-panel.html
+         Styles : css/layout.css + css/card.css
+    ══════════════════════════════ -->
+
+    <div class="left-panel">
 
   <!-- ── BRAND ──────────────────────────────────────────────
        Icon box + product name at the top of the panel.
@@ -36,10 +47,25 @@
     <div class="brand-icon">⚡</div>
     <span class="brand-name">NexaAuth</span>
   </div>                    
-        </div>
+        
+    <!-- ── TAGLINE HEADING ────────────────────────────────────
+       Big headline — the <span class="highlight"> words get
+       a blue-purple gradient applied by card.css.
+  ──────────────────────────────────────────────────────────── -->
+  <!-- ✏️ CHANGE: Write your own headline -->
+  <h2 class="panel-heading">
+    Your gateway to<br>
+    <span class="highlight">secure access</span>
+  </h2>
 
+  <!-- Short subtitle below the heading -->
+  <!-- ✏️ CHANGE: 1-2 sentences about your product/service -->
+  <p class="panel-subtext">
+    Join thousands of teams who trust NexaAuth to protect
+    their data with enterprise-grade security.
+  </p>
 
-    </div>
-   
+    
+</div>  
 </body>
 </html>
