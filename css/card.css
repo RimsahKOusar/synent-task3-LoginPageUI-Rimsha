@@ -141,3 +141,56 @@
   color: var(--subtle);
   font-style: normal;
 }
+/* ════════════════════════════════════════
+   RIGHT PANEL — LOGIN CARD
+   ════════════════════════════════════════ */
+
+/* ── LOGIN CARD CONTAINER ───────────────────────────────────
+   The white-ish box that holds the entire login form.
+   width: 100% + max-width: 420px means:
+   - On small screens it takes full width
+   - On large screens it never gets wider than 420px
+────────────────────────────────────────────────────────────── */
+.login-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--card-shadow);
+}
+
+/* ── CARD HEADER ────────────────────────────────────────────
+   The "Welcome back" heading and subtitle at the top of the card.
+────────────────────────────────────────────────────────────── */
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Small icon above the heading */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.25rem;   /* auto left/right centers it horizontally */
+}
+
+.card-header h1 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.4px;
+  margin-bottom: 0.4rem;
+}
+
+.card-header p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
