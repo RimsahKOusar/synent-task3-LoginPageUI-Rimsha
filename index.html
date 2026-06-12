@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
 
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/card.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ✏️ CHANGE: Update to your product name -->
+  <title>Synent Technologies — Sign In</title>
+
+  
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/card.css" />
+  <link rel="stylesheet" href="css/form.css" />
+
 
 </head>
+
 <body>
 
   <!--
@@ -27,71 +34,70 @@
     │  layout.css         │  form.css           │
     │                     │                     │
     └─────────────────────┴─────────────────────┘
-    ════════════════════════════════════════════════════════ 
+    ════════════════════════════════════════════════════════
   -->
 
- <div class="page-wrapper">
-   <!-- ══════════════════════════════
+  <div class="page-wrapper">
+
+    <!-- ══════════════════════════════
          LEFT PANEL — Decorative side
          Source : sections/left-panel.html
          Styles : css/layout.css + css/card.css
     ══════════════════════════════ -->
-
     <div class="left-panel">
 
-  
-  <div class="brand">
-    <!-- Gradient icon box — the emoji inside is the "logo" -->
-    <!-- ✏️ CHANGE: Update emoji and product name -->
-    <div class="brand-icon">⚡</div>
-    <span class="brand-name">Synent Technologies</span>
-  </div>                    
-        
-    <!-- ── TAGLINE HEADING ────────────────────────────────────
-       Big headline — the <span class="highlight"> words get
-       a blue-purple gradient applied by card.css.
-  ──────────────────────────────────────────────────────────── -->
-  <!-- ✏️ CHANGE: Write your own headline -->
-  <h2 class="panel-heading">
-    Scale Your Vision with<br>
-    <span class="highlight"> Synent Technologies</span>
-  </h2>
+      <!-- Brand: icon + name -->
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <!-- ✏️ CHANGE: Your product name -->
+        <span class="brand-name">Synent Technologies</span>
+      </div>
 
-  <!-- Short subtitle below the heading -->
-  <!-- ✏️ CHANGE: 1-2 sentences about your product/service -->
-  <p class="panel-subtext">
-    We engineer scalable AI powered platforms, modern web applications and cloud systems for global startups.
-  </p>
+      <!-- Main heading with gradient highlight words -->
+      <!-- ✏️ CHANGE: Your tagline -->
+      <h2 class="panel-heading">
+         Scale Your Vision with <br>
+        <span class="highlight">Synent Technologies</span>
+       
+      </h2>
 
-  <!-- 3 feature bullet points -->
+      <!-- Subtitle -->
+      <!-- ✏️ CHANGE: 1-2 sentences about your product -->
+      <p class="panel-subtext">
+        Join thousands of teams who trust Synent Technologies to build secure applications and protect 
+        their data with enterprise-grade security.
+      </p>
+
+      <!-- 3 feature bullet points -->
       <!-- ✏️ CHANGE: Your 3 key features -->
       <div class="feature-list">
         <div class="feature-item">
           <div class="feature-check">✓</div>
-          <span>End-to-end encryption on all data</span>
+          <span>specialize in building robust security solutions for fintech startups</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">✓</div>
-          <span>Two-factor authentication built in</span>
+          <span>AI-driven platforms that are designed to scale alongside your business.</span>
         </div>
         <div class="feature-item">
           <div class="feature-check">✓</div>
           <span>99.9% uptime — always available</span>
         </div>
       </div>
-  
-    <!-- Bottom quote -->
+
+      <!-- Bottom quote -->
       <!-- ✏️ CHANGE: A testimonial or quote -->
       <div class="panel-footer">
         <blockquote>
           "Synent Technologies didn't just build our platform; they architected a secure environment that passed our first security audit with flying colors."
         </blockquote>
-        <cite>— FinTech Founder,United States</cite>
+        <cite>— — FinTech Founder.,United States</cite>
       </div>
 
     </div>
 
-     <!-- ══════════════════════════════
+
+    <!-- ══════════════════════════════
          RIGHT PANEL — Login form
          Source : sections/right-panel.html
          Styles : css/layout.css + css/card.css + css/form.css
@@ -107,10 +113,93 @@
           <h1>Welcome back</h1>
           <p>Sign in to your account to continue</p>
         </div>
+
+        <!-- Login form -->
+        <form class="login-form" action="#" method="POST">
+
+          <!-- Email field -->
+          <div class="field-group">
+            <label class="field-label" for="email">
+              Email address
+              <span class="required-badge">Required</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">✉️</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password field with show/hide toggle -->
+          <div class="field-group">
+            <label class="field-label" for="password">
+              Password
+              <span class="required-badge">Required</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+              <!-- Eye button: wired to JS below -->
+              <button
+                type="button"
+                class="toggle-password"
+                data-target="password"
+                aria-label="Toggle password visibility"
+              >👁</button>
+            </div>
+          </div>
+
+          <!-- Remember me + Forgot password -->
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember" />
+              Remember me
+            </label>
+            <!-- ✏️ CHANGE: Link to your forgot-password page -->
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn-login">
+            Sign in to account →
+          </button>
+
+          <!-- "or continue with" divider -->
+          <div class="divider">or continue with</div>
+
+          <!-- Social login buttons (UI only) -->
+          <div class="social-buttons">
+            <button type="button" class="btn-social">
+              <span>G</span> Google
+            </button>
+            <button type="button" class="btn-social">
+              <span>⌥</span> GitHub
+            </button>
+          </div>
+
+          <!-- Sign up link -->
+          <!-- ✏️ CHANGE: Link to your sign-up page -->
+          <p class="signup-text">
+            Don't have an account? <a href="#">Create one free</a>
+          </p>
+
+        </form>
+
       </div>
+    </div>
 
-
-    
-</div>  
-</body>
-</html>
+  </div>
+  <!-- end .page-wrapper -->
