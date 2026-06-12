@@ -1,0 +1,297 @@
+/* ============================================================
+   form.css
+   PURPOSE : Styles every element INSIDE the login form:
+             labels, input fields, the password toggle eye icon,
+             the "Forgot Password" link, the login button,
+             and the "sign up" link at the bottom.
+
+   This is the most detailed CSS file because form UX matters —
+   users interact with these elements directly, so every state
+   (normal, focused, hover, error) needs to look intentional.
+   ============================================================ */
+
+
+/* ── FORM ELEMENT SPACING ───────────────────────────────────
+   Adds a gap between the email field group and password group.
+────────────────────────────────────────────────────────────── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+
+/* ── FIELD GROUP ────────────────────────────────────────────
+   Each "group" wraps one label + one input (or password input).
+   display: flex + flex-direction: column stacks them vertically:
+   label sits above its input.
+────────────────────────────────────────────────────────────── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;    /* space between the label and the input */
+}
+
+
+/* ── LABELS ─────────────────────────────────────────────────
+   The "Email address" and "Password" text above inputs.
+   They also have a small optional badge (e.g. "Required").
+────────────────────────────────────────────────────────────── */
+.field-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* label on left, badge on right */
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+/* The small "Required" badge on the right of the label */
+.field-label .required-badge {
+  font-size: 0.68rem;
+  color: #3b82f6;
+  background: rgba(59,130,246,0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 400;
+}
+
+
+/* ── INPUT WRAPPER ──────────────────────────────────────────
+   Wraps the input field AND the icon inside it.
+   position: relative is needed so the icon can be positioned
+   absolutely INSIDE the wrapper without affecting layout.
+────────────────────────────────────────────────────────────── */
+.input-wrapper {
+  position: relative;
+}
+
+/* The icon on the LEFT side of inputs (envelope, lock icons) */
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);  /* perfectly centers it vertically */
+  font-size: 0.95rem;
+  pointer-events: none;          /* icon doesn't block typing in the input */
+  color: var(--muted);
+}
+
+
+/* ── INPUT FIELDS ───────────────────────────────────────────
+   Styles the actual <input> elements for email and password.
+
+   appearance: none → removes browser-specific default input styling
+   outline: none    → removes the default blue browser focus ring
+                       (we add our own custom focus style below)
+────────────────────────────────────────────────────────────── */
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="text"] {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 0.8rem 2.8rem;     /* left/right padding makes room for icons */
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  outline: none;
+}
+
+/* Placeholder text color (the grey "you@example.com" hint text) */
+.login-form input::placeholder {
+  color: var(--subtle);
+  font-size: 0.85rem;
+}
+
+/* FOCUS STATE: when the user clicks into an input
+   The border turns blue and a soft glow appears underneath.
+   This tells the user "this field is active".            */
+.login-form input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+
+
+/* ── PASSWORD TOGGLE BUTTON ─────────────────────────────────
+   The eye icon on the RIGHT side of the password field.
+   Unlike the left icon, this one IS clickable — it toggles
+   between showing and hiding the password.
+────────────────────────────────────────────────────────────── */
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--muted);
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: var(--text);
+}
+
+
+/* ── FORGOT PASSWORD ROW ────────────────────────────────────
+   The row between the password field and the login button.
+   Contains a "Remember me" checkbox on the left and
+   "Forgot password?" link on the right.
+────────────────────────────────────────────────────────────── */
+.form-options {
+  display: flex;
+  justify-content: space-between;   /* pushes items to opposite ends */
+  align-items: center;
+  margin-top: -0.25rem;
+}
+
+/* "Remember me" checkbox + label side by side */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #3b82f6;  /* colors the checkbox blue when checked */
+  cursor: pointer;
+}
+
+/* "Forgot password?" link */
+.forgot-link {
+  font-size: 0.82rem;
+  color: #3b82f6;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: #60a5fa;   /* lighter blue on hover */
+}
+
+
+/* ── DIVIDER ────────────────────────────────────────────────
+   The "— or continue with —" separator between the login button
+   and social login options.
+
+   The lines on either side of the text are created using
+   ::before and ::after pseudo-elements — no extra HTML needed.
+   flex: 1 makes each line grow to fill equal space.
+────────────────────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+
+/* ── LOGIN BUTTON ───────────────────────────────────────────
+   The main submit button. Full-width, gradient background,
+   glows on hover.
+────────────────────────────────────────────────────────────── */
+.btn-login {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-xs);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+/* Hover: button lifts up and glow intensifies */
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+/* Active (when clicked): button presses down */
+.btn-login:active {
+  transform: translateY(0);
+}
+
+
+/* ── SOCIAL LOGIN BUTTONS ───────────────────────────────────
+   Two side-by-side buttons for Google and GitHub login.
+   They're visual only (no real auth functionality in this task).
+────────────────────────────────────────────────────────────── */
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* two equal columns */
+  gap: 0.75rem;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-social:hover {
+  border-color: #3b82f6;
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+
+/* ── SIGN UP LINK ───────────────────────────────────────────
+   The "Don't have an account? Sign up" text at the bottom.
+────────────────────────────────────────────────────────────── */
+.signup-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.signup-text a {
+  color: #3b82f6;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.signup-text a:hover {
+  color: #60a5fa;
+}

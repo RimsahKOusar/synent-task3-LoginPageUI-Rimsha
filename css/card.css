@@ -44,6 +44,8 @@
   color: var(--text);
   letter-spacing: -0.3px;
 }
+
+
 /* ── TAGLINE HEADING ────────────────────────────────────────
    The big headline on the left panel.
    clamp() makes the font size automatically scale with screen:
@@ -78,6 +80,7 @@
   margin-bottom: 2.5rem;
   max-width: 360px;
 }
+
 
 /* ── FEATURE LIST ───────────────────────────────────────────
    Three bullet points showing product features.
@@ -118,6 +121,7 @@
   color: var(--muted);
 }
 
+
 /* ── PANEL FOOTER (QUOTE) ───────────────────────────────────
    A small trust-building quote at the bottom of the left panel.
    The border-left creates the classic "blockquote" accent line.
@@ -141,6 +145,8 @@
   color: var(--subtle);
   font-style: normal;
 }
+
+
 /* ════════════════════════════════════════
    RIGHT PANEL — LOGIN CARD
    ════════════════════════════════════════ */

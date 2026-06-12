@@ -11,6 +11,23 @@
    "make two columns, each taking 1 fraction of available space"
    So each column gets exactly 50% of the page width.
    ============================================================ */
+
+
+/* ── PAGE WRAPPER ───────────────────────────────────────────
+   This is the outermost container that holds both panels.
+
+   display: grid          → activates CSS Grid on this element
+   grid-template-columns  → defines the column sizes
+     "1fr 1fr" = two equal columns (50% / 50%)
+   min-height: 100vh      → wrapper fills the full screen height
+────────────────────────────────────────────────────────────── */
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+
 /* ── LEFT PANEL ─────────────────────────────────────────────
    The decorative left half of the screen.
    Contains the brand name, tagline, and feature list.
@@ -67,16 +84,17 @@
 }
 
 
-/* ── PAGE WRAPPER ───────────────────────────────────────────
-   This is the outermost container that holds both panels.
+/* ── RIGHT PANEL ────────────────────────────────────────────
+   The right half where the login form lives.
+   Centers the card both horizontally and vertically.
 
-   display: grid          → activates CSS Grid on this element
-   grid-template-columns  → defines the column sizes
-     "1fr 1fr" = two equal columns (50% / 50%)
-   min-height: 100vh      → wrapper fills the full screen height
+   display: flex + align-items + justify-content:
+   These three together center the card perfectly in the middle
+   of the right panel — both up/down and left/right.
 ────────────────────────────────────────────────────────────── */
-.page-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+.right-panel {
+  display: flex;
+  align-items: center;       /* centers vertically */
+  justify-content: center;   /* centers horizontally */
+  padding: 2rem;
 }
