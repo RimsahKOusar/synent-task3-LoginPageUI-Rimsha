@@ -117,3 +117,27 @@
   font-size: 0.88rem;
   color: var(--muted);
 }
+
+/* ── PANEL FOOTER (QUOTE) ───────────────────────────────────
+   A small trust-building quote at the bottom of the left panel.
+   The border-left creates the classic "blockquote" accent line.
+────────────────────────────────────────────────────────────── */
+.panel-footer {
+  border-left: 3px solid #3b82f6;
+  padding-left: 1rem;
+  margin-top: auto;   /* pushes this to the bottom of the panel */
+}
+
+.panel-footer blockquote {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.panel-footer cite {
+  font-size: 0.78rem;
+  color: var(--subtle);
+  font-style: normal;
+}
